@@ -1,0 +1,14 @@
+J:\Mar\online-cinema-project\src\OnlineCinemaApp\OnlineCinemaApp\bin\Debug\net8.0\OnlineCinemaApp.exe
+J:\Mar\online-cinema-project\src\OnlineCinemaApp\OnlineCinemaApp\bin\Debug\net8.0\OnlineCinemaApp.deps.json
+J:\Mar\online-cinema-project\src\OnlineCinemaApp\OnlineCinemaApp\bin\Debug\net8.0\OnlineCinemaApp.runtimeconfig.json
+J:\Mar\online-cinema-project\src\OnlineCinemaApp\OnlineCinemaApp\bin\Debug\net8.0\OnlineCinemaApp.dll
+J:\Mar\online-cinema-project\src\OnlineCinemaApp\OnlineCinemaApp\bin\Debug\net8.0\OnlineCinemaApp.pdb
+J:\Mar\online-cinema-project\src\OnlineCinemaApp\OnlineCinemaApp\obj\Debug\net8.0\OnlineCinemaApp.GeneratedMSBuildEditorConfig.editorconfig
+J:\Mar\online-cinema-project\src\OnlineCinemaApp\OnlineCinemaApp\obj\Debug\net8.0\OnlineCinemaApp.AssemblyInfoInputs.cache
+J:\Mar\online-cinema-project\src\OnlineCinemaApp\OnlineCinemaApp\obj\Debug\net8.0\OnlineCinemaApp.AssemblyInfo.cs
+J:\Mar\online-cinema-project\src\OnlineCinemaApp\OnlineCinemaApp\obj\Debug\net8.0\OnlineCinemaApp.csproj.CoreCompileInputs.cache
+J:\Mar\online-cinema-project\src\OnlineCinemaApp\OnlineCinemaApp\obj\Debug\net8.0\OnlineCinemaApp.dll
+J:\Mar\online-cinema-project\src\OnlineCinemaApp\OnlineCinemaApp\obj\Debug\net8.0\refint\OnlineCinemaApp.dll
+J:\Mar\online-cinema-project\src\OnlineCinemaApp\OnlineCinemaApp\obj\Debug\net8.0\OnlineCinemaApp.pdb
+J:\Mar\online-cinema-project\src\OnlineCinemaApp\OnlineCinemaApp\obj\Debug\net8.0\OnlineCinemaApp.genruntimeconfig.cache
+J:\Mar\online-cinema-project\src\OnlineCinemaApp\OnlineCinemaApp\obj\Debug\net8.0\ref\OnlineCinemaApp.dll
