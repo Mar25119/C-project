@@ -4,6 +4,11 @@ class Program
 {
     static void Main()
     {
+        string connectionString = "Data Source=OnlineCinema.db;Version=3;";
+        var dbContext = new DbContext(connectionString);
+        var userRepo = new UserRepository(dbContext);
+        var movieRepo = new MovieRepository(dbContext);
+
         bool exit = false;
         while (!exit)
         {
@@ -23,13 +28,13 @@ class Program
                 switch (choice)
                 {
                     case "1":
-                        Login();
+                        Login(userRepo);
                         break;
                     case "2":
-                        Register();
+                        Register(userRepo);
                         break;
                     case "3":
-                        ViewMovies();
+                        movieRepo.GetAllMovies();
                         break;
                     case "4":
                         SearchContent();
@@ -59,7 +64,7 @@ class Program
         }
     }
 
-    static void Login()
+    static void Login(UserRepository userRepo)
     {
         Console.Clear();
         Console.WriteLine("=== Вход ===");
@@ -69,11 +74,17 @@ class Program
         Console.Write("Введите пароль: ");
         string password = ReadPassword();
 
-        // Здесь будет проверка в БД
-        Console.WriteLine($"\nВход выполнен для пользователя: {email}");
+        if (userRepo.Login(email, password))
+        {
+            Console.WriteLine("Вход выполнен успешно!");
+        }
+        else
+        {
+            Console.WriteLine("Неверный email или пароль.");
+        }
     }
 
-    static void Register()
+    static void Register(UserRepository userRepo)
     {
         Console.Clear();
         Console.WriteLine("=== Регистрация ===");
@@ -87,8 +98,7 @@ class Program
         Console.Write("Введите пароль: ");
         string password = ReadPassword();
 
-        // Здесь будет сохранение в БД
-        Console.WriteLine("\nРегистрация прошла успешно!");
+        userRepo.Register(name, email, password);
     }
 
     static void ViewMovies()
