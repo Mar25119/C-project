@@ -1,0 +1,17 @@
+# Build Folders
+bin/
+obj/
+
+# Visual Studio Folders
+.vs/
+*.user
+*.suo
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary files
+*.tmp
+*~
