@@ -1,9 +1,8 @@
-﻿using System;
-using System.Data.SQLite;
+﻿using System.Data.SQLite;
 
-class UserRepository
+public class UserRepository
 {
-    private DbContext _context;
+    private readonly DbContext _context;
 
     public UserRepository(DbContext context)
     {
@@ -14,8 +13,6 @@ class UserRepository
     {
         using (var connection = _context.CreateConnection())
         {
-            if (connection == null) return;
-
             string query = "INSERT INTO Users (Name, Email, PasswordHash) VALUES (@name, @email, @password)";
             using (var command = new SQLiteCommand(query, connection))
             {
@@ -23,15 +20,7 @@ class UserRepository
                 command.Parameters.AddWithValue("@email", email);
                 command.Parameters.AddWithValue("@password", passwordHash);
 
-                try
-                {
-                    command.ExecuteNonQuery();
-                    Console.WriteLine("Регистрация прошла успешно!");
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Ошибка регистрации: {ex.Message}");
-                }
+                command.ExecuteNonQuery();
             }
         }
     }
@@ -40,25 +29,40 @@ class UserRepository
     {
         using (var connection = _context.CreateConnection())
         {
-            if (connection == null) return false;
-
             string query = "SELECT COUNT(1) FROM Users WHERE Email = @email AND PasswordHash = @password";
             using (var command = new SQLiteCommand(query, connection))
             {
                 command.Parameters.AddWithValue("@email", email);
                 command.Parameters.AddWithValue("@password", password);
 
-                try
+                long count = (long)command.ExecuteScalar();
+                return count == 1;
+            }
+        }
+    }
+
+    public User GetUserByEmail(string email)
+    {
+        using (var connection = _context.CreateConnection())
+        {
+            string query = "SELECT Id, Name, Email FROM Users WHERE Email = @email";
+            using (var command = new SQLiteCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@email", email);
+                using (var reader = command.ExecuteReader())
                 {
-                    long count = (long)command.ExecuteScalar();
-                    return count == 1;
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Ошибка входа: {ex.Message}");
-                    return false;
+                    if (reader.Read())
+                    {
+                        return new User
+                        {
+                            Id = Convert.ToInt32(reader["Id"]),
+                            Name = reader["Name"].ToString(),
+                            Email = reader["Email"].ToString()
+                        };
+                    }
                 }
             }
         }
+        return null;
     }
 }
