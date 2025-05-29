@@ -1,6 +1,6 @@
 ﻿using System.Data.SQLite;
 
-class DbContext
+public class DbContext
 {
     private string _connectionString;
 
